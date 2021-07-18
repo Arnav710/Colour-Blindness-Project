@@ -1,80 +1,74 @@
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel = "stylesheet", href = "styles.css">
+<style>
+div.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0 auto;
+	background: #0072BB;
+	color:#fff;
+}
+</style>
 </head>
+
 <body>
-    <h1> Hello! Is this working? Run 20</h1>
 
-    <script>
+<p>Open image: <input type="file" id="inputImage"/></p>
 
-        function FindPosition(oElement)
-        {
-            if(typeof( oElement.offsetParent ) != "undefined")
-            {
-                for(var posX = 0, posY = 0; oElement; oElement = oElement.offsetParent)
-                {
-                    posX += oElement.offsetLeft;
-                    posY += oElement.offsetTop;
-                }
-                return [ posX, posY ];
-            }
-            else
-            {
-                return [ oElement.x, oElement.y ];
-            }
-        }
+<canvas id="canvas" style="margin:12px;"></canvas>
 
-        function GetCoordinates(event)
-        {
-            var PosX = 0;
-            var PosY = 0;
-            var ImgPos;
-  
-            ImgPos = FindPosition(image);
-            
-            if (!event) var event = window.event;
-  
-            if (event.pageX || event.pageY)
-            {
-                PosX = event.pageX;
-                PosY = event.pageY;
-            }
+<div class="footer" id="results">Move mouse over image to show mouse location and pixel value and alpha</div>
 
-            else if (event.clientX || event.clientY)
-            {
-                PosX = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-                PosY = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-            }
-            PosX = PosX - image[0];
-            PosY = PosY - image[1];
-            document.getElementById("x").innerHTML = PosX;
-            document.getElementById("y").innerHTML = PosY;
-        }
+<script>
+var URL = window.URL;
+var cvs = document.getElementById('canvas');
+var ctx = cvs.getContext('2d');
+var res = document.getElementById('results');
 
-        
-    </script>
+cvs.addEventListener('mousemove', mousePos, false);
+cvs.addEventListener('click', copyMousePos, false);
 
-    <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
-    <p><img id="output" height="300" /></p>
-	
-    <script>
-	
-	var loadFile = function(event) {
-		
-	    var image = document.getElementById('output');
-	    image.src = URL.createObjectURL(event.target.files[0]) 
-      	    image.onmousedown = GetCoordinates(event);
-		
-	};
+window.onload = function() {
+	var inputImage = document.getElementById('inputImage');
+	inputImage.addEventListener('change', handleImageFiles, false);
+}
 
-    </script>	    
-	<p>X:<span id="x"></span></p>
-	<p>Y:<span id="y"></span></p>
+function copyMousePos(evt) {
+	var rect = cvs.getBoundingClientRect();
+	var x = parseInt(evt.clientX - rect.left);
+	var y = parseInt(evt.clientY - rect.top);
+	copyText = x+';'+y
+	navigator.clipboard.writeText(copyText).then(function() {
+	  console.log('ok')
+	}, function() {
+	  console.log('ko')
+	});
+}
 
+function mousePos(evt) {
+	var rect = cvs.getBoundingClientRect();
+	var x = parseInt(evt.clientX - rect.left);
+	var y = parseInt(evt.clientY - rect.top);
+	var p = ctx.getImageData(x, y, 1, 1).data;
+	results.innerHTML = '<table style="width:100%;table-layout:fixed"><td>X: ' 
+		+ x + '</td><td>Y: ' + y + '</td><td>Red: ' 
+		+ p[0] + '</td><td>Green: ' + p[1] + '</td><td>Blue: ' 
+		+ p[2] + '</td><td>Alpha: ' + p[3]+"</td></table>";
+	return {x, y};
+}
+
+function handleImageFiles(e) {	
+	var url = URL.createObjectURL(e.target.files[0]);
+	var img = new Image();
+	img.onload = function() {
+		cvs.width = img.width;
+		cvs.height = img.height;
+		ctx.drawImage(img, 0, 0);    
+	}
+	img.src = url;
+}
+
+</script>
 </body>
 </html>
