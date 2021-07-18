@@ -16,7 +16,53 @@
     <script>
     var loadFile = function(event) {
 	    var image = document.getElementById('output');
-	    image.src = URL.createObjectURL(event.target.files[0])  
+	    image.src = URL.createObjectURL(event.target.files[0]) 
+        image.onmousedown = GetCoordinates;
+
+        function FindPosition(oElement)
+        {
+            if(typeof( oElement.offsetParent ) != "undefined")
+            {
+                for(var posX = 0, posY = 0; oElement; oElement = oElement.offsetParent)
+                {
+                    posX += oElement.offsetLeft;
+                    posY += oElement.offsetTop;
+                }
+                return [ posX, posY ];
+            }
+            else
+            {
+                return [ oElement.x, oElement.y ];
+            }
+        }
+
+        function GetCoordinates(event)
+        {
+            var PosX = 0;
+            var PosY = 0;
+            var ImgPos;
+  
+            ImgPos = FindPosition(image);
+            
+            if (!event) var event = window.event;
+  
+            if (event.pageX || event.pageY)
+            {
+                PosX = event.pageX;
+                PosY = event.pageY;
+            }
+
+            else if (event.clientX || event.clientY)
+            {
+                PosX = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                PosY = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+            PosX = PosX - image[0];
+            PosY = PosY - image[1];
+            document.getElementById("x").innerHTML = PosX;
+            document.getElementById("y").innerHTML = PosY;
+        }
+
         };
     </script>
 </body>
