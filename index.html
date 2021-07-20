@@ -47,23 +47,132 @@ function copyMousePos(evt) {
 	});
 }
 
+
+function compute_closest_colour(red, green, blue, col_list) {
+	
+	var closest_code = col_list[0][0];
+	var closest_colour = col_list[0][1];
+	var rgb_clicked = [red, green, blue];
+
+	var best_deviaion = 0;
+	for (let i = 0; i < 3; i++) {
+		best_deviaion += Math.abs(rgb_clicked[i] - closest_code[i]);
+	}
+	best_deviaion /= 3;
+
+	for (let i = 0; i < col_list.length; i++) {
+		var colour_code = col_list[i][0];
+		var colour = col_list[i][1];
+
+		var deviation = 0;
+		for (let i = 0; i < 3; i++) {
+			deviation += Math.abs(rgb_clicked[i] - colour_code[i]);
+		}
+		deviation /= 3;
+
+		if (deviation < best_deviaion) {
+			best_deviaion = deviation;
+            closest_code = colour_code;
+            closest_colour = colour;
+		}
+	}
+
+	if (best_deviaion <= 50) {
+		return closest_colour;
+	}
+        
+    else {
+		return "colour not recognised";
+	}
+        
+}
+
 function mousePos(evt) {
+
 	var rect = cvs.getBoundingClientRect();
 	var x = parseInt(evt.clientX - rect.left);
 	var y = parseInt(evt.clientY - rect.top);
 	var p = ctx.getImageData(x, y, 1, 1).data;
-	results.innerHTML = '<table style="width:100%;table-layout:fixed"><td>X: ' 
-		+ x + '</td><td>Y: ' + y + '</td><td>Red: ' 
-		+ p[0] + '</td><td>Green: ' + p[1] + '</td><td>Blue: ' 
-		+ p[2] + '</td><td>Alpha: ' + p[3]+"</td></table>";
+
+	var colour_list = [
+  
+	[[128,0,0], "maroon"],
+	[[139,0,0], "dark red"],
+	[[165,42,42],  "brown"],
+	[[255,0,0], "red"],
+	[[255,99,71],  "light orange"],
+	[[255,140,0], "dark orange"],
+	[[255,165,0], "orange"],
+	[[255,215,0], "gold"],
+	[[189,183,107],  "dark khaki"],
+	[[240,230,140],  "khaki"],
+	[[128,128,0], "olive"],
+	[[255,255,0], "yellow"],
+	[[154,205,50],  "yellow green"],
+	[[124,252,0],"lawn green"],
+	[[111, 169, 82], "green"],
+	[[173,255,47], "green yellow"],
+	[[0,100,0], "dark green"],
+	[[0,128,0],  "green"],
+	[[0,255,0],  "lime"],
+	[[50,205,50],  "lime green"],
+	[[144,238,144],  "light green"],
+	[[0,128,128],  "teal"],
+	[[0,255,255], "aqua"],
+	[[0,255,255], "cyan"],
+	[[224,255,255],  "light cyan"],
+	[[0,206,209], "dark turquoise"],
+	[[64,224,208],  "turquoise"],
+	[[127,255,212],  "aqua marine"],
+	[[0,191,255],  "deep sky blue"],
+	[[173,216,230],  "light blue"],
+	[[135,206,235], "sky blue"],
+	[[135,206,250], "light sky blue"],
+	[[25,25,112],  "midnight blue"],
+	[[0,0,128],  "navy"],
+	[[0,0,139],  "dark blue"],
+	[[0,0,205],  "medium blue"],
+	[[0,0,255],  "blue"],
+	[[65,105,225],  "royal blue"],
+	[[138,43,226],  "blue violet"],
+	[[75,0,130],  "indigo"],
+	[[147,112,219],  "medium purple"],
+	[[139,0,139], "dark magenta"],
+	[[148,0,211], "dark violet"],
+	[[128,0,128], "purple"],
+	[[238,130,238],  "violet"],
+	[[218,112,214], "orchid"],
+	[[255,182,193], "light pink"],
+	[[255,192,203], "pink"],
+	[[255,255,224], "light yellow"],
+	[[210,105,30], "chocolate"],
+	[[230,230,250], "lavender"],
+	[[0,0,0],  "black"],
+	[[128,128,128],  "gray / grey"],
+	[[169,169,169], "dark gray / dark grey"],
+	[[192,192,192], "silver"],
+	[[211,211,211],"light gray / light grey"],
+	[[255,255,255], "white"],
+	[[251, 16, 93], "dark pink"],
+	[[172, 146, 33],  "pale olive"],
+	[[0, 149, 67],  "green"],
+	[[186, 73, 155],  "purple"],
+	[[255, 229, 180],  "peach"]
+
+];
+
+	results.innerHTML = '<table style="width:100%;table-layout:fixed"><td>Colour: ' 
+		+ compute_closest_colour(p[0], p[1], p[2], colour_list) + "</td></table>";
+
 	return {x, y};
 }
+
 
 function handleImageFiles(e) {	
 	var url = URL.createObjectURL(e.target.files[0]);
 	var img = new Image();
 	img.onload = function() {
-		var factor = 100 / img.height;
+		var factor = 400 / img.height;
 		cvs.width = img.width * factor;
 		cvs.height = img.height * factor;
 		ctx.drawImage(img, 0, 0, width = cvs.width, height = cvs.height);    
