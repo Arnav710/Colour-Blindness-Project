@@ -82,7 +82,7 @@ function compute_closest_colour(red, green, blue, col_list) {
 	}
         
     	else {
-		return "colour not recognised" + " " best_deviation.toString() + closest_colour;
+		return "colour not recognised" + " " best_deviation.toString() + " " + closest_colour;
 	}
         
 }
@@ -249,7 +249,7 @@ function mousePos(evt) {
 ["Light Gray / Light Grey",[211,211,211]],
 ["Gainsboro",[220,220,220]],
 ["White Smoke",[245,245,245]],
-["White",[255,255,255]],
+["White",[255,255,255]]
 ];
 
 	results.innerHTML = '<table style="width:100%;table-layout:fixed"><td>Colour: ' 
