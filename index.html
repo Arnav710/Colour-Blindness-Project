@@ -59,7 +59,7 @@ function compute_closest_colour(red, green, blue, col_list) {
 		best_deviation += Math.abs(rgb_clicked[i] - closest_code[i]);
 		best_deviation *= best_deviation;
 	}
-	best_deviaion /= 3;
+	best_deviation /= 3;
 
 	for (let i = 0; i < col_list.length; i++) {
 		var colour_code = col_list[i][1];
@@ -79,7 +79,7 @@ function compute_closest_colour(red, green, blue, col_list) {
 		}
 	}
 
-	if (best_deviaion <= 30) {
+	if (best_deviation <= 30) {
 		return closest_colour;
 	}
         
