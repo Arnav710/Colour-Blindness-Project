@@ -33,7 +33,7 @@ function clicked(evt){
     var green_at_click = p[1];
     var blue_at_click = p[2];
 
-    console.log(p)
+
 }
 
 window.onload = function() {
@@ -93,6 +93,170 @@ function compute_closest_colour(red, green, blue, col_list) {
         
 }
 
+function col_list() {
+
+    var colour_list = [
+        ["Black",[0,0,0]],
+        ["White",[255,255,255]],
+        ["Red",[255,0,0]],
+        ["Lime",[0,255,0]],
+        ["Blue",[0,0,255]],
+        ["Yellow",[255,255,0]],
+        ["Cyan / Aqua",[0,255,255]],
+        ["Magenta / Fuchsia",[255,0,255]],
+        ["Silver",[192,192,192]],
+        ["Gray",[128,128,128]],
+        ["Maroon",[128,0,0]],
+        ["Olive",[128,128,0]],
+        ["Green",[0,128,0]],
+        ["Purple",[128,0,128]],
+        ["Teal",[0,128,128]],
+        ["Navy",[0,0,128]],
+        ["Maroon",[128,0,0]],
+        ["Dark Red",[139,0,0]],
+        ["Brown",[165,42,42]],
+        ["Firebrick",[178,34,34]],
+        ["Crimson",[220,20,60]],
+        ["Red",[255,0,0]],
+        ["Tomato",[255,99,71]],
+        ["Coral",[255,127,80]],
+        ["Indian Red",[205,92,92]],
+        ["Light Coral",[240,128,128]],
+        ["Dark Salmon",[233,150,122]],
+        ["Salmon",[250,128,114]],
+        ["Light Salmon",[255,160,122]],
+        ["Orange Red",[255,69,0]],
+        ["Dark Orange",[255,140,0]],
+        ["Orange",[255,165,0]],
+        ["Gold",[255,215,0]],
+        ["Dark Golden Rod",[184,134,11]],
+        ["Golden Rod",[218,165,32]],
+        ["Pale Golden Rod",[238,232,170]],
+        ["Dark Khaki",[189,183,107]],
+        ["Khaki",[240,230,140]],
+        ["Olive",[128,128,0]],
+        ["Yellow",[255,255,0]],
+        ["Yellow Green",[154,205,50]],
+        ["Dark Olive Green",[85,107,47]],
+        ["Olive Drab",[107,142,35]],
+        ["Lawn Green",[124,252,0]],
+        ["Chart Reuse",[127,255,0]],
+        ["Green Yellow",[173,255,47]],
+        ["Dark Green",[0,100,0]],
+        ["Green",[0,128,0]],
+        ["Forest Green",[34,139,34]],
+        ["Lime",[0,255,0]],
+        ["Lime Green",[50,205,50]],
+        ["Light Green",[144,238,144]],
+        ["Pale Green",[152,251,152]],
+        ["Dark Sea Green",[143,188,143]],
+        ["Medium Spring Green",[0,250,154]],
+        ["Spring Green",[0,255,127]],
+        ["Sea Green",[46,139,87]],
+        ["Medium Aqua Marine",[102,205,170]],
+        ["Medium Sea Green",[60,179,113]],
+        ["Light Sea Green",[32,178,170]],
+        ["Dark Slate Gray",[47,79,79]],
+        ["Teal",[0,128,128]],
+        ["Dark Cyan",[0,139,139]],
+        ["Aqua",[0,255,255]],
+        ["Cyan",[0,255,255]],
+        ["Light Cyan",[224,255,255]],
+        ["Dark Turquoise",[0,206,209]],
+        ["Turquoise",[64,224,208]],
+        ["Medium Turquoise",[72,209,204]],
+        ["Pale Turquoise",[175,238,238]],
+        ["Aqua Marine",[127,255,212]],
+        ["Powder Blue",[176,224,230]],
+        ["Cadet Blue",[95,158,160]],
+        ["Steel Blue",[70,130,180]],
+        ["Corn Flower Blue",[100,149,237]],
+        ["Deep Sky Blue",[0,191,255]],
+        ["Dodger Blue",[30,144,255]],
+        ["Light Blue",[173,216,230]],
+        ["Sky Blue",[135,206,235]],
+        ["Light Sky Blue",[135,206,250]],
+        ["Midnight Blue",[25,25,112]],
+        ["Navy",[0,0,128]],
+        ["Dark Blue",[0,0,139]],
+        ["Medium Blue",[0,0,205]],
+        ["Blue",[0,0,255]],
+        ["Royal Blue",[65,105,225]],
+        ["Blue Violet",[138,43,226]],
+        ["Indigo",[75,0,130]],
+        ["Dark Slate Blue",[72,61,139]],
+        ["Slate Blue",[106,90,205]],
+        ["Medium Slate Blue",[123,104,238]],
+        ["Medium Purple",[147,112,219]],
+        ["Dark Magenta",[139,0,139]],
+        ["Dark Violet",[148,0,211]],
+        ["Dark Orchid",[153,50,204]],
+        ["Medium Orchid",[186,85,211]],
+        ["Purple",[128,0,128]],
+        ["Thistle",[216,191,216]],
+        ["Plum",[221,160,221]],
+        ["Violet",[238,130,238]],
+        ["Magenta / Fuchsia",[255,0,255]],
+        ["Orchid",[218,112,214]],
+        ["Medium Violet Red",[199,21,133]],
+        ["Pale Violet Red",[219,112,147]],
+        ["Deep Pink",[255,20,147]],
+        ["Hot Pink",[255,105,180]],
+        ["Light Pink",[255,182,193]],
+        ["Pink",[255,192,203]],
+        ["Antique White",[250,235,215]],
+        ["Beige",[245,245,220]],
+        ["Bisque",[255,228,196]],
+        ["Blanched Almond",[255,235,205]],
+        ["Wheat",[245,222,179]],
+        ["Corn Silk",[255,248,220]],
+        ["Lemon Chiffon",[255,250,205]],
+        ["Light Golden Rod Yellow",[250,250,210]],
+        ["Light Yellow",[255,255,224]],
+        ["Saddle Brown",[139,69,19]],
+        ["Sienna",[160,82,45]],
+        ["Chocolate",[210,105,30]],
+        ["Peru",[205,133,63]],
+        ["Sandy Brown",[244,164,96]],
+        ["Burly Wood",[222,184,135]],
+        ["Tan",[210,180,140]],
+        ["Rosy Brown",[188,143,143]],
+        ["Moccasin",[255,228,181]],
+        ["Navajo White",[255,222,173]],
+        ["Peach Puff",[255,218,185]],
+        ["Misty Rose",[255,228,225]],
+        ["Lavender Blush",[255,240,245]],
+        ["Linen",[250,240,230]],
+        ["Old Lace",[253,245,230]],
+        ["Papaya Whip",[255,239,213]],
+        ["Sea Shell",[255,245,238]],
+        ["Mint Cream",[245,255,250]],
+        ["Slate Gray",[112,128,144]],
+        ["Light Slate Gray",[119,136,153]],
+        ["Light Steel Blue",[176,196,222]],
+        ["Lavender",[230,230,250]],
+        ["Floral White",[255,250,240]],
+        ["Alice Blue",[240,248,255]],
+        ["Ghost White",[248,248,255]],
+        ["Honeydew",[240,255,240]],
+        ["Ivory",[255,255,240]],
+        ["Azure",[240,255,255]],
+        ["Snow",[255,250,250]],
+        ["Black",[0,0,0]],
+        ["Dim Gray / Dim Grey",[105,105,105]],
+        ["Gray / Grey",[128,128,128]],
+        ["Dark Gray / Dark Grey",[169,169,169]],
+        ["Silver",[192,192,192]],
+        ["Light Gray / Light Grey",[211,211,211]],
+        ["Gainsboro",[220,220,220]],
+        ["White Smoke",[245,245,245]],
+        ["White",[255,255,255]]
+];
+
+return colour_list;
+    
+}
+
 function mousePos(evt) {
 
 	var rect = cvs.getBoundingClientRect();
@@ -100,166 +264,10 @@ function mousePos(evt) {
 	var y = parseInt(evt.clientY - rect.top);
 	var p = ctx.getImageData(x, y, 1, 1).data;
 
-	var colour_list = [
-["Black",[0,0,0]],
-["White",[255,255,255]],
-["Red",[255,0,0]],
-["Lime",[0,255,0]],
-["Blue",[0,0,255]],
-["Yellow",[255,255,0]],
-["Cyan / Aqua",[0,255,255]],
-["Magenta / Fuchsia",[255,0,255]],
-["Silver",[192,192,192]],
-["Gray",[128,128,128]],
-["Maroon",[128,0,0]],
-["Olive",[128,128,0]],
-["Green",[0,128,0]],
-["Purple",[128,0,128]],
-["Teal",[0,128,128]],
-["Navy",[0,0,128]],
-["Maroon",[128,0,0]],
-["Dark Red",[139,0,0]],
-["Brown",[165,42,42]],
-["Firebrick",[178,34,34]],
-["Crimson",[220,20,60]],
-["Red",[255,0,0]],
-["Tomato",[255,99,71]],
-["Coral",[255,127,80]],
-["Indian Red",[205,92,92]],
-["Light Coral",[240,128,128]],
-["Dark Salmon",[233,150,122]],
-["Salmon",[250,128,114]],
-["Light Salmon",[255,160,122]],
-["Orange Red",[255,69,0]],
-["Dark Orange",[255,140,0]],
-["Orange",[255,165,0]],
-["Gold",[255,215,0]],
-["Dark Golden Rod",[184,134,11]],
-["Golden Rod",[218,165,32]],
-["Pale Golden Rod",[238,232,170]],
-["Dark Khaki",[189,183,107]],
-["Khaki",[240,230,140]],
-["Olive",[128,128,0]],
-["Yellow",[255,255,0]],
-["Yellow Green",[154,205,50]],
-["Dark Olive Green",[85,107,47]],
-["Olive Drab",[107,142,35]],
-["Lawn Green",[124,252,0]],
-["Chart Reuse",[127,255,0]],
-["Green Yellow",[173,255,47]],
-["Dark Green",[0,100,0]],
-["Green",[0,128,0]],
-["Forest Green",[34,139,34]],
-["Lime",[0,255,0]],
-["Lime Green",[50,205,50]],
-["Light Green",[144,238,144]],
-["Pale Green",[152,251,152]],
-["Dark Sea Green",[143,188,143]],
-["Medium Spring Green",[0,250,154]],
-["Spring Green",[0,255,127]],
-["Sea Green",[46,139,87]],
-["Medium Aqua Marine",[102,205,170]],
-["Medium Sea Green",[60,179,113]],
-["Light Sea Green",[32,178,170]],
-["Dark Slate Gray",[47,79,79]],
-["Teal",[0,128,128]],
-["Dark Cyan",[0,139,139]],
-["Aqua",[0,255,255]],
-["Cyan",[0,255,255]],
-["Light Cyan",[224,255,255]],
-["Dark Turquoise",[0,206,209]],
-["Turquoise",[64,224,208]],
-["Medium Turquoise",[72,209,204]],
-["Pale Turquoise",[175,238,238]],
-["Aqua Marine",[127,255,212]],
-["Powder Blue",[176,224,230]],
-["Cadet Blue",[95,158,160]],
-["Steel Blue",[70,130,180]],
-["Corn Flower Blue",[100,149,237]],
-["Deep Sky Blue",[0,191,255]],
-["Dodger Blue",[30,144,255]],
-["Light Blue",[173,216,230]],
-["Sky Blue",[135,206,235]],
-["Light Sky Blue",[135,206,250]],
-["Midnight Blue",[25,25,112]],
-["Navy",[0,0,128]],
-["Dark Blue",[0,0,139]],
-["Medium Blue",[0,0,205]],
-["Blue",[0,0,255]],
-["Royal Blue",[65,105,225]],
-["Blue Violet",[138,43,226]],
-["Indigo",[75,0,130]],
-["Dark Slate Blue",[72,61,139]],
-["Slate Blue",[106,90,205]],
-["Medium Slate Blue",[123,104,238]],
-["Medium Purple",[147,112,219]],
-["Dark Magenta",[139,0,139]],
-["Dark Violet",[148,0,211]],
-["Dark Orchid",[153,50,204]],
-["Medium Orchid",[186,85,211]],
-["Purple",[128,0,128]],
-["Thistle",[216,191,216]],
-["Plum",[221,160,221]],
-["Violet",[238,130,238]],
-["Magenta / Fuchsia",[255,0,255]],
-["Orchid",[218,112,214]],
-["Medium Violet Red",[199,21,133]],
-["Pale Violet Red",[219,112,147]],
-["Deep Pink",[255,20,147]],
-["Hot Pink",[255,105,180]],
-["Light Pink",[255,182,193]],
-["Pink",[255,192,203]],
-["Antique White",[250,235,215]],
-["Beige",[245,245,220]],
-["Bisque",[255,228,196]],
-["Blanched Almond",[255,235,205]],
-["Wheat",[245,222,179]],
-["Corn Silk",[255,248,220]],
-["Lemon Chiffon",[255,250,205]],
-["Light Golden Rod Yellow",[250,250,210]],
-["Light Yellow",[255,255,224]],
-["Saddle Brown",[139,69,19]],
-["Sienna",[160,82,45]],
-["Chocolate",[210,105,30]],
-["Peru",[205,133,63]],
-["Sandy Brown",[244,164,96]],
-["Burly Wood",[222,184,135]],
-["Tan",[210,180,140]],
-["Rosy Brown",[188,143,143]],
-["Moccasin",[255,228,181]],
-["Navajo White",[255,222,173]],
-["Peach Puff",[255,218,185]],
-["Misty Rose",[255,228,225]],
-["Lavender Blush",[255,240,245]],
-["Linen",[250,240,230]],
-["Old Lace",[253,245,230]],
-["Papaya Whip",[255,239,213]],
-["Sea Shell",[255,245,238]],
-["Mint Cream",[245,255,250]],
-["Slate Gray",[112,128,144]],
-["Light Slate Gray",[119,136,153]],
-["Light Steel Blue",[176,196,222]],
-["Lavender",[230,230,250]],
-["Floral White",[255,250,240]],
-["Alice Blue",[240,248,255]],
-["Ghost White",[248,248,255]],
-["Honeydew",[240,255,240]],
-["Ivory",[255,255,240]],
-["Azure",[240,255,255]],
-["Snow",[255,250,250]],
-["Black",[0,0,0]],
-["Dim Gray / Dim Grey",[105,105,105]],
-["Gray / Grey",[128,128,128]],
-["Dark Gray / Dark Grey",[169,169,169]],
-["Silver",[192,192,192]],
-["Light Gray / Light Grey",[211,211,211]],
-["Gainsboro",[220,220,220]],
-["White Smoke",[245,245,245]],
-["White",[255,255,255]]
-];
+    var lst = col_list();
 
 	results.innerHTML = '<table style="width:100%;table-layout:fixed"><td>Colour: ' 
-		+ compute_closest_colour(p[0], p[1], p[2], colour_list) + "</td></table>";
+		+ compute_closest_colour(p[0], p[1], p[2], lst) + "</td></table>";
 
 	return {x, y};
 }
@@ -278,5 +286,169 @@ function handleImageFiles(e) {
 }
 
 </script>
+
+<label for="new_colour">Choose a colour that you want to introduce:</label>
+
+<select name="new_colour" id="new_colour">
+
+    <option value = "Black">Black</option>
+    <option value = "White">White</option>
+    <option value = "Red">Red</option>
+    <option value = "Lime">Lime</option>
+    <option value = "Blue">Blue</option>
+    <option value = "Yellow">Yellow</option>
+    <option value = "Cyan / Aqua">Cyan / Aqua</option>
+    <option value = "Magenta / Fuchsia">Magenta / Fuchsia</option>
+    <option value = "Silver">Silver</option>
+    <option value = "Gray">Gray</option>
+    <option value = "Maroon">Maroon</option>
+    <option value = "Olive">Olive</option>
+    <option value = "Green">Green</option>
+    <option value = "Purple">Purple</option>
+    <option value = "Teal">Teal</option>
+    <option value = "Navy">Navy</option>
+    <option value = "Maroon">Maroon</option>
+    <option value = "Dark Red">Dark Red</option>
+    <option value = "Brown">Brown</option>
+    <option value = "Firebrick">Firebrick</option>
+    <option value = "Crimson">Crimson</option>
+    <option value = "Red">Red</option>
+    <option value = "Tomato">Tomato</option>
+    <option value = "Coral">Coral</option>
+    <option value = "Indian Red">Indian Red</option>
+    <option value = "Light Coral">Light Coral</option>
+    <option value = "Dark Salmon">Dark Salmon</option>
+    <option value = "Salmon">Salmon</option>
+    <option value = "Light Salmon">Light Salmon</option>
+    <option value = "Orange Red">Orange Red</option>
+    <option value = "Dark Orange">Dark Orange</option>
+    <option value = "Orange">Orange</option>
+    <option value = "Gold">Gold</option>
+    <option value = "Dark Golden Rod">Dark Golden Rod</option>
+    <option value = "Golden Rod">Golden Rod</option>
+    <option value = "Pale Golden Rod">Pale Golden Rod</option>
+    <option value = "Dark Khaki">Dark Khaki</option>
+    <option value = "Khaki">Khaki</option>
+    <option value = "Olive">Olive</option>
+    <option value = "Yellow">Yellow</option>
+    <option value = "Yellow Green">Yellow Green</option>
+    <option value = "Dark Olive Green">Dark Olive Green</option>
+    <option value = "Olive Drab">Olive Drab</option>
+    <option value = "Lawn Green">Lawn Green</option>
+    <option value = "Chart Reuse">Chart Reuse</option>
+    <option value = "Green Yellow">Green Yellow</option>
+    <option value = "Dark Green">Dark Green</option>
+    <option value = "Green">Green</option>
+    <option value = "Forest Green">Forest Green</option>
+    <option value = "Lime">Lime</option>
+    <option value = "Lime Green">Lime Green</option>
+    <option value = "Light Green">Light Green</option>
+    <option value = "Pale Green">Pale Green</option>
+    <option value = "Dark Sea Green">Dark Sea Green</option>
+    <option value = "Medium Spring Green">Medium Spring Green</option>
+    <option value = "Spring Green">Spring Green</option>
+    <option value = "Sea Green">Sea Green</option>
+    <option value = "Medium Aqua Marine">Medium Aqua Marine</option>
+    <option value = "Medium Sea Green">Medium Sea Green</option>
+    <option value = "Light Sea Green">Light Sea Green</option>
+    <option value = "Dark Slate Gray">Dark Slate Gray</option>
+    <option value = "Teal">Teal</option>
+    <option value = "Dark Cyan">Dark Cyan</option>
+    <option value = "Aqua">Aqua</option>
+    <option value = "Cyan">Cyan</option>
+    <option value = "Light Cyan">Light Cyan</option>
+    <option value = "Dark Turquoise">Dark Turquoise</option>
+    <option value = "Turquoise">Turquoise</option>
+    <option value = "Medium Turquoise">Medium Turquoise</option>
+    <option value = "Pale Turquoise">Pale Turquoise</option>
+    <option value = "Aqua Marine">Aqua Marine</option>
+    <option value = "Powder Blue">Powder Blue</option>
+    <option value = "Cadet Blue">Cadet Blue</option>
+    <option value = "Steel Blue">Steel Blue</option>
+    <option value = "Corn Flower Blue">Corn Flower Blue</option>
+    <option value = "Deep Sky Blue">Deep Sky Blue</option>
+    <option value = "Dodger Blue">Dodger Blue</option>
+    <option value = "Light Blue">Light Blue</option>
+    <option value = "Sky Blue">Sky Blue</option>
+    <option value = "Light Sky Blue">Light Sky Blue</option>
+    <option value = "Midnight Blue">Midnight Blue</option>
+    <option value = "Navy">Navy</option>
+    <option value = "Dark Blue">Dark Blue</option>
+    <option value = "Medium Blue">Medium Blue</option>
+    <option value = "Blue">Blue</option>
+    <option value = "Royal Blue">Royal Blue</option>
+    <option value = "Blue Violet">Blue Violet</option>
+    <option value = "Indigo">Indigo</option>
+    <option value = "Dark Slate Blue">Dark Slate Blue</option>
+    <option value = "Slate Blue">Slate Blue</option>
+    <option value = "Medium Slate Blue">Medium Slate Blue</option>
+    <option value = "Medium Purple">Medium Purple</option>
+    <option value = "Dark Magenta">Dark Magenta</option>
+    <option value = "Dark Violet">Dark Violet</option>
+    <option value = "Dark Orchid">Dark Orchid</option>
+    <option value = "Medium Orchid">Medium Orchid</option>
+    <option value = "Purple">Purple</option>
+    <option value = "Thistle">Thistle</option>
+    <option value = "Plum">Plum</option>
+    <option value = "Violet">Violet</option>
+    <option value = "Magenta / Fuchsia">Magenta / Fuchsia</option>
+    <option value = "Orchid">Orchid</option>
+    <option value = "Medium Violet Red">Medium Violet Red</option>
+    <option value = "Pale Violet Red">Pale Violet Red</option>
+    <option value = "Deep Pink">Deep Pink</option>
+    <option value = "Hot Pink">Hot Pink</option>
+    <option value = "Light Pink">Light Pink</option>
+    <option value = "Pink">Pink</option>
+    <option value = "Antique White">Antique White</option>
+    <option value = "Beige">Beige</option>
+    <option value = "Bisque">Bisque</option>
+    <option value = "Blanched Almond">Blanched Almond</option>
+    <option value = "Wheat">Wheat</option>
+    <option value = "Corn Silk">Corn Silk</option>
+    <option value = "Lemon Chiffon">Lemon Chiffon</option>
+    <option value = "Light Golden Rod Yellow">Light Golden Rod Yellow</option>
+    <option value = "Light Yellow">Light Yellow</option>
+    <option value = "Saddle Brown">Saddle Brown</option>
+    <option value = "Sienna">Sienna</option>
+    <option value = "Chocolate">Chocolate</option>
+    <option value = "Peru">Peru</option>
+    <option value = "Sandy Brown">Sandy Brown</option>
+    <option value = "Burly Wood">Burly Wood</option>
+    <option value = "Tan">Tan</option>
+    <option value = "Rosy Brown">Rosy Brown</option>
+    <option value = "Moccasin">Moccasin</option>
+    <option value = "Navajo White">Navajo White</option>
+    <option value = "Peach Puff">Peach Puff</option>
+    <option value = "Misty Rose">Misty Rose</option>
+    <option value = "Lavender Blush">Lavender Blush</option>
+    <option value = "Linen">Linen</option>
+    <option value = "Old Lace">Old Lace</option>
+    <option value = "Papaya Whip">Papaya Whip</option>
+    <option value = "Sea Shell">Sea Shell</option>
+    <option value = "Mint Cream">Mint Cream</option>
+    <option value = "Slate Gray">Slate Gray</option>
+    <option value = "Light Slate Gray">Light Slate Gray</option>
+    <option value = "Light Steel Blue">Light Steel Blue</option>
+    <option value = "Lavender">Lavender</option>
+    <option value = "Floral White">Floral White</option>
+    <option value = "Alice Blue">Alice Blue</option>
+    <option value = "Ghost White">Ghost White</option>
+    <option value = "Honeydew">Honeydew</option>
+    <option value = "Ivory">Ivory</option>
+    <option value = "Azure">Azure</option>
+    <option value = "Snow">Snow</option>
+    <option value = "Black">Black</option>
+    <option value = "Dim Gray / Dim Grey">Dim Gray / Dim Grey</option>
+    <option value = "Gray / Grey">Gray / Grey</option>
+    <option value = "Dark Gray / Dark Grey">Dark Gray / Dark Grey</option>
+    <option value = "Silver">Silver</option>
+    <option value = "Light Gray / Light Grey">Light Gray / Light Grey</option>
+    <option value = "Gainsboro">Gainsboro</option>
+    <option value = "White Smoke">White Smoke</option>
+    <option value = "White">White</option>
+
+</select>
+
+
 </body>
 </html>
