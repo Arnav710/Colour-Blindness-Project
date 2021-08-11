@@ -24,7 +24,16 @@ cvs.addEventListener('click', copyMousePos, false);
 cvs.addEventListener('click', clicked, false);
 
 function clicked(evt){
-    console.log(evt);
+    var rect = cvs.getBoundingClientRect();
+	var x = parseInt(evt.clientX - rect.left);
+	var y = parseInt(evt.clientY - rect.top);
+	var p = ctx.getImageData(x, y, 1, 1).data;
+    
+    var red_at_click = p[0];
+    var green_at_click = p[1];
+    var blue_at_click = p[2];
+
+    console.log(p)
 }
 
 window.onload = function() {
