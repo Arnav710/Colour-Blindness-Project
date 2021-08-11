@@ -453,8 +453,8 @@ function handleImageFiles(e) {
 <script>
     function selected()
     {
-        var selection = document.getElementById("new_colour");
-        alert("The new colour is " + selection)
+        var select = document.getElementById("new_colour");
+        alert("The new colour is " + select.options[select.selectedIndex].value)
     }
 </script>
 
