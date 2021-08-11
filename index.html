@@ -18,23 +18,10 @@ var URL = window.URL;
 var cvs = document.getElementById('canvas');
 var ctx = cvs.getContext('2d');
 var res = document.getElementById('results');
+var new_col;
 
 cvs.addEventListener('mousemove', mousePos, false);
 cvs.addEventListener('click', copyMousePos, false);
-cvs.addEventListener('click', clicked, false);
-
-function clicked(evt){
-    var rect = cvs.getBoundingClientRect();
-	var x = parseInt(evt.clientX - rect.left);
-	var y = parseInt(evt.clientY - rect.top);
-	var p = ctx.getImageData(x, y, 1, 1).data;
-    
-    var red_at_click = p[0];
-    var green_at_click = p[1];
-    var blue_at_click = p[2];
-
-
-}
 
 window.onload = function() {
 	var inputImage = document.getElementById('inputImage');
@@ -288,9 +275,24 @@ function handleImageFiles(e) {
 function selected()
     {
         var select = document.getElementById("new_colour");
-        var new_col = select.options[select.selectedIndex].value;
+        new_col = select.options[select.selectedIndex].value;
         alert("The new colour is " +  new_col + "\nNow, click on the image to choose the colour that you want to repace.")
+        cvs.addEventListener('click', clicked, false);
     }
+    
+function clicked(evt){
+    var rect = cvs.getBoundingClientRect();
+    var x = parseInt(evt.clientX - rect.left);
+    var y = parseInt(evt.clientY - rect.top);
+    var p = ctx.getImageData(x, y, 1, 1).data;
+    
+    var red_at_click = p[0];
+    var green_at_click = p[1];
+    var blue_at_click = p[2];
+
+    console.log(red_at_click + " " + green_at_click + " " + blue_at_click);
+    console.log(new_col);
+}
 
 </script>
 <br>
