@@ -21,6 +21,11 @@ var res = document.getElementById('results');
 
 cvs.addEventListener('mousemove', mousePos, false);
 cvs.addEventListener('click', copyMousePos, false);
+cvs.addEventListener('click', clicked, false);
+
+function clicked(evt){
+    console.log(evt);
+}
 
 window.onload = function() {
 	var inputImage = document.getElementById('inputImage');
