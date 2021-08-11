@@ -280,18 +280,39 @@ function selected()
         cvs.addEventListener('click', clicked, false);
     }
     
-function clicked(evt){
+    function clicked(evt){
     var rect = cvs.getBoundingClientRect();
-    var x = parseInt(evt.clientX - rect.left);
-    var y = parseInt(evt.clientY - rect.top);
-    var p = ctx.getImageData(x, y, 1, 1).data;
+	var x = parseInt(evt.clientX - rect.left);
+	var y = parseInt(evt.clientY - rect.top);
+	var p = ctx.getImageData(x, y, 1, 1).data;
     
     var red_at_click = p[0];
     var green_at_click = p[1];
     var blue_at_click = p[2];
 
+    var lst_of_colours = col_list();
+
+    var new_red;
+    var new_blue;
+    var new_green;
+
+    for (var i = 0; i < lst_of_colours.length; i++)
+    {
+        var i_th_record = lst_of_colours[i];
+        var i_th_colour = i_th_record[0];
+        var i_th_rgb = i_th_record[1];
+
+        if (i_th_colour == new_col)
+        {
+            new_red = i_th_rgb[0];
+            new_green = i_th_rgb[1];
+            new_blue = i_th_rgb[2];
+        }
+    }
+
     console.log(red_at_click + " " + green_at_click + " " + blue_at_click);
-    console.log(new_col);
+    console.log(new_red + " " + new_green + " " + new_blue);
+
 }
 
 </script>
