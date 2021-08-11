@@ -285,6 +285,13 @@ function handleImageFiles(e) {
 	img.src = url;
 }
 
+function selected()
+    {
+        var select = document.getElementById("new_colour");
+        var new_col = select.options[select.selectedIndex].value;
+        alert("The new colour is " +  new_col + "\nNow, click on the image to choose the colour that you want to repace.")
+    }
+
 </script>
 <br>
 <label for="new_colour">Choose a colour that you want to introduce:</label>
@@ -450,13 +457,6 @@ function handleImageFiles(e) {
 </select>
 <button onclick="selected()">Submit</button>
 
-<script>
-    function selected()
-    {
-        var select = document.getElementById("new_colour");
-        alert("The new colour is " + select.options[select.selectedIndex].value)
-    }
-</script>
 
 </body>
 </html>
