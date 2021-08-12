@@ -310,6 +310,19 @@ function selected()
         }
     }
 
+    var imageData = ctx.getImageData(0, 0, x, y);
+    for (var i = 0; i < imageData.Data.length; i+=4)
+    {
+        if (imageData.data[i] == red_at_click && imageData.data[i+1] == green_at_click && imageData.data[i] == blue_at_click)
+        {
+            imageData.data[i] = new_red;
+            imageData.data[i+1] = new_blue;
+            imageData.data[i+2] = new_green;
+        }
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+
     console.log(red_at_click + " " + green_at_click + " " + blue_at_click);
     console.log(new_red + " " + new_green + " " + new_blue);
 
@@ -483,3 +496,4 @@ function selected()
 
 </body>
 </html>
+
