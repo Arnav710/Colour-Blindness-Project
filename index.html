@@ -313,7 +313,7 @@ function selected()
     var imageData = ctx.getImageData(0, 0, x, y);
     for (var i = 0; i < imageData.data.length; i+=4)
     {
-        if (Math.abs(imageData.data[i] - red_at_click) < 6 && Math.abs(imageData.data[i+1] - green_at_click) < 6 && Math.abs(imageData.data[i+2] - blue_at_click) < 6)
+        if (Math.abs(imageData.data[i] - red_at_click) < 10 && Math.abs(imageData.data[i+1] - green_at_click) < 10 && Math.abs(imageData.data[i+2] - blue_at_click) < 10)
         {
             imageData.data[i] = new_red;
             imageData.data[i+1] = new_blue;
