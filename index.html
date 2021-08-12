@@ -311,7 +311,7 @@ function selected()
     }
 
     var imageData = ctx.getImageData(0, 0, x, y);
-    for (var i = 0; i < imageData.Data.length; i+=4)
+    for (var i = 0; i < imageData.data.length; i+=4)
     {
         if (imageData.data[i] == red_at_click && imageData.data[i+1] == green_at_click && imageData.data[i] == blue_at_click)
         {
