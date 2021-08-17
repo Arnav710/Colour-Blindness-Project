@@ -71,7 +71,7 @@ function compute_closest_colour(red, green, blue, col_list) {
 	}
 
 	if (best_deviation <= 625) {
-		return closest_colour;
+		return closest_colour + "( " + red + ", " + green + ", " + blue + " )";
 	}
         
     	else {
@@ -333,7 +333,9 @@ function fine(a, b, c, d, e, f)
 	dev += Math.abs(c - d) * Math.abs(c - d);
 	dev += Math.abs(e - f) * Math.abs(e - f);
 		
-	if (dev <= 1200)
+	dev /= 3;
+	
+	if (dev <= 625)
 	{
 		return true;
 	}
