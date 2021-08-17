@@ -329,13 +329,11 @@ function selected()
 function fine(a, b, c, d, e, f)
 {
 	var dev = 0;
-	dev += Math.abs(a - b);
-	dev += Math.abs(c - d);
-	dev += Math.abs(e - f);
-	
-	dev /= 3;
-	
-	if (dev <= 30)
+	dev += Math.abs(a - b) * Math.abs(a - b);
+	dev += Math.abs(c - d) * Math.abs(c - d);
+	dev += Math.abs(e - f) * Math.abs(e - f);
+		
+	if (dev <= 900)
 	{
 		return true;
 	}
