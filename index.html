@@ -282,9 +282,9 @@ function selected()
     
     function clicked(evt){
     var rect = cvs.getBoundingClientRect();
-	var x = parseInt(evt.clientX - rect.left);
-	var y = parseInt(evt.clientY - rect.top);
-	var p = ctx.getImageData(x, y, 1, 1).data;
+    var x = parseInt(evt.clientX - rect.left);
+    var y = parseInt(evt.clientY - rect.top);
+    var p = ctx.getImageData(x, y, 1, 1).data;
     
     var red_at_click = p[0];
     var green_at_click = p[1];
@@ -335,7 +335,7 @@ function fine(a, b, c, d, e, f)
 		
 	dev /= 3;
 	
-	if (dev <= 625)
+	if (dev <= 900)
 	{
 		return true;
 	}
