@@ -314,7 +314,7 @@ function selected()
 	    
     for (var i = 0; i < imageData.data.length; i+=4)
     {
-        if (fine(imageData.data[i] == red_at_click && imageData.data[i+1] == green_at_click && imageData.data[i+2] == blue_at_click))
+        if (fine(imageData.data[i], red_at_click, imageData.data[i+1], green_at_click, imageData.data[i+2], blue_at_click))
         {
 	    console.log("hello 5");
             imageData.data[i] = new_red;
@@ -334,7 +334,7 @@ function fine(a, b, c, d, e, f)
 	dev += Math.abs(c - d) * Math.abs(c - d);
 	dev += Math.abs(e - f) * Math.abs(e - f);
 		
-	if (dev <= 1200)
+	if (dev <= 1000)
 	{
 		return true;
 	}
