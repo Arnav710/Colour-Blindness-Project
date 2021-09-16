@@ -329,14 +329,14 @@ function selected()
 	
 function fine(a, b, c, d, e, f)
 {
-	var d = 0;
-	d += Math.abs(a - b) * Math.abs(a - b);
-	d += Math.abs(c - d) * Math.abs(c - d);
-	d += Math.abs(e - f) * Math.abs(e - f);
+	var dev = 0;
+	dev += Math.abs(a - b) * Math.abs(a - b);
+	dev += Math.abs(c - d) * Math.abs(c - d);
+	dev += Math.abs(e - f) * Math.abs(e - f);
 	
-	console.log([a, b], [c, d], [e, f], d);
+	console.log([a, b], [c, d], [e, f], dev);
 	
-	if (d <= 1200)
+	if (dev <= 1200)
 	{
 		return true;
 	}
