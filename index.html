@@ -310,7 +310,7 @@ function selected()
         }
     }
 
-    var imageData = ctx.getImageData(x, y, 1, 1);
+    var imageData = ctx.getImageData(0, 0, x, y);
 	    
     for (var i = 0; i < imageData.data.length; i+=4)
     {
