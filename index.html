@@ -316,7 +316,7 @@ function selected()
     {
         if (fine(imageData.data[i], red_at_click, imageData.data[i+1], green_at_click, imageData.data[i+2], blue_at_click))
         {
-	    console.log("hello 4");
+	    console.log("hello 5");
             imageData.data[i] = new_red;
             imageData.data[i+1] = new_green;
             imageData.data[i+2] = new_blue;
@@ -333,9 +333,6 @@ function fine(a, b, c, d, e, f)
 	d += Math.abs(a - b) * Math.abs(a - b);
 	d += Math.abs(c - d) * Math.abs(c - d);
 	d += Math.abs(e - f) * Math.abs(e - f);
-	
-	console.log([a, b], [c, d], [e, f], d);
-
 			
 	if (d <= 1200)
 	{
