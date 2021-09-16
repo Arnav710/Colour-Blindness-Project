@@ -305,17 +305,18 @@ function selected()
         if (i_th_colour == new_col)
         {
             new_red = i_th_rgb[0];
-            new_green = i_th_rgb[1];
+	    new_green = i_th_rgb[1];
             new_blue = i_th_rgb[2];
         }
     }
 
-    var imageData = ctx.getImageData(0, 0, x, y);
+    var imageData = ctx.Data(0, 0, x, y);
+	    
     for (var i = 0; i < imageData.data.length; i+=4)
     {
         if (fine(imageData.data[i], red_at_click, imageData.data[i+1], green_at_click, imageData.data[i+2], blue_at_click))
         {
-	    console.log("hello 3");
+	    console.log("hello 4");
             imageData.data[i] = new_red;
             imageData.data[i+1] = new_green;
             imageData.data[i+2] = new_blue;
