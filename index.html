@@ -333,7 +333,9 @@ function fine(a, b, c, d, e, f)
 	d += Math.abs(a - b) * Math.abs(a - b);
 	d += Math.abs(c - d) * Math.abs(c - d);
 	d += Math.abs(e - f) * Math.abs(e - f);
-			
+	
+	console.log([a, b], [c, d], [e, f], d);
+	
 	if (d <= 1200)
 	{
 		return true;
