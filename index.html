@@ -71,11 +71,11 @@ function compute_closest_colour(red, green, blue, col_list) {
 	}
 
 	if (best_deviation <= 625) {
-		return closest_colour + "( " + red + ", " + green + ", " + blue + " )";
+		return closest_colour;
 	}
         
     	else {
-		return "colour not recognised" + " " + best_deviation.toString() + " " + closest_colour;
+		return "colour not recognised";
 	}
         
 }
