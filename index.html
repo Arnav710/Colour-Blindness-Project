@@ -253,7 +253,7 @@ function mousePos(evt) {
 
     var lst = col_list();
 
-	results.innerHTML = '<table style="width:100%;table-layout:fixed"><td>Colour: ' 
+	results.innerHTML = '<table style="width:100%;table-layout:fixed";bgcolor = "lightblue"><td>Colour: ' 
 		+ compute_closest_colour(p[0], p[1], p[2], lst) + "</td></table>";
 
 	return {x, y};
